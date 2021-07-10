@@ -20,7 +20,8 @@ class Login extends React.Component {
 
   login = e => {
     e.preventDefault();
-    axios.post("http://localhost:5000/api/login", this.state.credentials)
+    // changed port to 5001 as local server was unable to run on 5000
+    axios.post("http://localhost:5001/api/login", this.state.credentials)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
         console.log("login was successful!");
