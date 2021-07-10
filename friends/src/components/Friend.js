@@ -12,9 +12,11 @@ class Friend extends React.Component {
 
     return (
       <Container style={{ width: '30rem'}}>
-        <h5><Badge>Name: {friend.name}</Badge></h5>
-        <p>Age: {friend.age}</p>
-        <p>Email: {friend.email}</p>
+        <Card bg='light' text='dark' border="danger" className='mb-2'>
+          <h5>Name: {friend.name}</h5>
+          <p>Age: {friend.age}</p>
+          <p>Email: {friend.email}</p>
+        </Card>
       </Container>
       )
   }

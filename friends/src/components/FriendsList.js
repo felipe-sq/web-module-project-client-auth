@@ -1,4 +1,7 @@
 import React from 'react';
+import { Container, Card, Badge } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import axiosWithAuth from '../helpers/axiosWithAuth';
 import Friend from './Friend';
 
@@ -21,17 +24,14 @@ class FriendsList extends React.Component {
     console.log(this.state.friends);
 
     return (
-      <div className="title-wrapper">
-        {/* <div className="title"> */}
-          {/* <div className="inner-wrapper"> */}
-            <div className="top-title">Friends List!
-              {
-                this.state.friends.map(friend => <Friend key={friend.id} friend={friend} />)
-              }
-            </div>
-          {/* </div> */}
-        {/* </div> */}
-      </div>
+      <Container style={{ width: '50rem'}}>
+        <Card bg='dark' text='light' border="dark" className='mb-2'>
+          <h3>Protected Friends List!</h3><br />
+          {
+            this.state.friends.map(friend => <Friend key={friend.id} friend={friend} />)
+          }
+        </Card>
+      </Container>
     )
   }
 };
