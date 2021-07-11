@@ -21,8 +21,6 @@ class FriendsList extends React.Component {
   };
 
   render() {
-    console.log(this.state.friends);
-
     return (
       <Container style={{ width: '50rem'}}>
         <Card bg='dark' text='light' border="dark" className='mb-2'>

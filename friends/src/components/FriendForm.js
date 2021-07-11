@@ -2,7 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import { Card } from 'react-bootstrap';
 
-class NewFriend extends React.Component {
+import axiosWithAuth from '../helpers/axiosWithAuth';
+
+class FriendForm extends React.Component {
   state = {
     newFriend: {
       id: null,
@@ -21,14 +23,14 @@ class NewFriend extends React.Component {
     });
   };
 
-  submit = e => {
+  submit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5001/api/friends", this.state.newFriend)
+    axiosWithAuth().post("/friends", this.state.newFriend)
       .then(res => {
-        console.log(res);
-        this.props.history.push("/protected");
-      })
-      .catch(err => console.log("error adding new friend!", err))
+      console.log(res);
+      this.props.history.push("/protected");
+  })
+      .catch(err => console.log("error adding new friend!", err));
   };
 
   render() {
@@ -38,24 +40,29 @@ class NewFriend extends React.Component {
           <input
             type="text"
             name="name"
+            placeholder="Friend's Name"
             value={this.state.newFriend.name}
             onChange={this.handleChange}
-          />
+          /><br/>
           <input
             type="text"
             name="age"
+            placeholder="Friend's Age"
             value={this.state.newFriend.age}
             onChange={this.handleChange}
-          />          
+          /><br/>     
           <input
             type="text"
             name="email"
+            placeholder="Friend's Email"
             value={this.state.newFriend.email}
             onChange={this.handleChange}
-          />
+          /><br/>
           <button>Add Friend</button>
         </form>
       </Card>
     )
   }
 }
+
+export default FriendForm;
