@@ -13,7 +13,7 @@ class FriendsList extends React.Component {
   componentDidMount() {
     this.getData();
   }
-
+ 
   getData = () => {
     axiosWithAuth().get("/friends")
       .then(res => this.setState({ friends: res.data }))
